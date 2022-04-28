@@ -25,7 +25,7 @@ def get_candidate(candidate_id):
                 "picture": candidate["picture"],
                 "skills": candidate["skills"],
             }
-        return {"not_found": "такой кандидат не найден"}
+    return {"not_found": "такой кандидат не найден"}
 
 def get_candidates_by_name(candidate_name):
     """
@@ -33,9 +33,9 @@ def get_candidates_by_name(candidate_name):
     """
     count = 0
     candidate_list = []
-    candidate_n = str(candidate_name)
+    candidate_n = str(candidate_name).lower()
     for candidate in __data:
-        if candidate_n in candidate["name"]:
+        if candidate_n in candidate["name"].lower():
             candidate_list.append(candidate["name"])
             count += 1
     return count, candidate_list
